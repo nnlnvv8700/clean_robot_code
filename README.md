@@ -25,22 +25,31 @@
 
 ## 部署到小车
 
-建议把两个工作空间都放在小车用户的家目录下，因为启动脚本会自动 source：
+建议把两个工作空间都放在小车用户家目录下的 `~/bcsh` 文件夹里，因为启动脚本会优先自动 source 这个目录下的两个工作空间：
 
 ```bash
 cd ~
+mkdir -p bcsh
+cd ~/bcsh
 git clone <clean_robot_code 仓库地址> clean_robot_code
 git clone <upros_class_code 仓库地址> upros_class_code
 ```
 
-如果小车上已经有 `~/upros_class_code`，可以只更新它，不必重复 clone。
+目录结构应类似：
+
+```bash
+~/bcsh/clean_robot_code
+~/bcsh/upros_class_code
+```
+
+启动脚本会优先使用 `~/bcsh` 里的项目；如果没有找到，也会兼容旧路径 `~/clean_robot_code` 和 `~/upros_class_code`。
 
 ## 编译顺序
 
 先编译基础工程：
 
 ```bash
-cd ~/upros_class_code
+cd ~/bcsh/upros_class_code
 rosdepc install --from-paths src --ignore-src --rosdistro=noetic -y
 catkin_make --pkg upros_message
 catkin_make
@@ -49,7 +58,7 @@ catkin_make
 再编译本工程：
 
 ```bash
-cd ~/clean_robot_code
+cd ~/bcsh/clean_robot_code
 rosdepc install --from-paths src --ignore-src --rosdistro=noetic -y
 catkin_make
 ```
@@ -57,7 +66,7 @@ catkin_make
 ## 运行 B 赛项 W2A 桌面清洁流程
 
 ```bash
-cd ~/clean_robot_code
+cd ~/bcsh/clean_robot_code
 chmod +x run_clean_desktop_w2a.sh
 ./run_clean_desktop_w2a.sh
 ```
@@ -86,8 +95,8 @@ roslaunch clean_desktop_robot complete_flow.launch
 
 ```bash
 source /opt/ros/noetic/setup.bash
-source ~/upros_class_code/devel/setup.bash
-source ~/clean_robot_code/devel/setup.bash
+source ~/bcsh/upros_class_code/devel/setup.bash
+source ~/bcsh/clean_robot_code/devel/setup.bash
 ```
 
 可以用下面命令检查 ROS 包是否能找到：
@@ -105,8 +114,8 @@ rospack find w2u_navigation
 重新 source 两个工作空间：
 
 ```bash
-source ~/upros_class_code/devel/setup.bash
-source ~/clean_robot_code/devel/setup.bash
+source ~/bcsh/upros_class_code/devel/setup.bash
+source ~/bcsh/clean_robot_code/devel/setup.bash
 ```
 
 如果仍然找不到，重新按编译顺序执行 `catkin_make`。
@@ -116,7 +125,7 @@ source ~/clean_robot_code/devel/setup.bash
 `clean_desktop_robot` 编译依赖 `upros_message`，需要先在 `upros_class_code` 中单独编译消息包：
 
 ```bash
-cd ~/upros_class_code
+cd ~/bcsh/upros_class_code
 catkin_make --pkg upros_message
 catkin_make
 ```

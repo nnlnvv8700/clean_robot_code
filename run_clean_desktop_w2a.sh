@@ -10,6 +10,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKSPACE_DIR="${SCRIPT_DIR}"
+BCSH_DIR="$(cd "${WORKSPACE_DIR}/.." && pwd)"
 LOG_DIR="${WORKSPACE_DIR}/logs"
 mkdir -p "${LOG_DIR}"
 
@@ -44,8 +45,18 @@ echo "============================================================"
 
 source_if_exists "/opt/ros/noetic/setup.bash"
 source_if_exists "${WORKSPACE_DIR}/devel/setup.bash"
-source_if_exists "${HOME}/upros_class_code/devel/setup.bash"
-source_if_exists "${HOME}/clean_robot_code/devel/setup.bash"
+
+if [[ -f "${BCSH_DIR}/upros_class_code/devel/setup.bash" ]]; then
+  source_if_exists "${BCSH_DIR}/upros_class_code/devel/setup.bash"
+else
+  source_if_exists "${HOME}/upros_class_code/devel/setup.bash"
+fi
+
+if [[ -f "${BCSH_DIR}/clean_robot_code/devel/setup.bash" ]]; then
+  source_if_exists "${BCSH_DIR}/clean_robot_code/devel/setup.bash"
+else
+  source_if_exists "${HOME}/clean_robot_code/devel/setup.bash"
+fi
 
 echo
 echo "[启动脚本] 检查 ROS 包..."
