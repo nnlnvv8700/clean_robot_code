@@ -467,12 +467,12 @@ bool navigateToGoalWithRecovery(MoveBaseClient &ac,
 
 // TF Buffer 定义为全局，避免 main 退出后线程访问已销毁的对象
 tf2_ros::Buffer g_tfBuffer;
-tf2_ros::TransformListener g_tfListener(g_tfBuffer);
 
 int main(int argc, char **argv)
 {
     ros::init(argc, argv, "send_goals_node");
     ros::NodeHandle nh;
+    tf2_ros::TransformListener g_tfListener(g_tfBuffer);
 
     // TF 后台监控线程（全局 buffer，安全 detach）
     std::thread tf_thread(printRobotPoseLoop, &g_tfBuffer);
