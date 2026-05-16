@@ -1,10 +1,10 @@
 xacro: in-order processing became default in ROS Melodic. You can drop the option.
-... logging to /home/bcsh/.ros/log/6fb2364a-510a-11f1-a592-488f4cee555a/roslaunch-bcsh-339129.log
+... logging to /home/bcsh/.ros/log/8fab8c32-5121-11f1-b478-488f4cee555a/roslaunch-bcsh-200643.log
 Checking log directory for disk usage. This may take a while.
 Press Ctrl-C to interrupt
 Done checking log file disk usage. Usage is <1GB.
 ]2;/home/bcsh/bcsh/clean_robot_code/src/clean_desktop_robot/launch/clean_desktop_robot_w2a.launch
-[1mstarted roslaunch server http://bcsh:36851/[0m
+[1mstarted roslaunch server http://bcsh:37171/[0m
 
 SUMMARY
 ========
@@ -238,7 +238,7 @@ PARAMETERS
  * /move_base/global_costmap/global_frame: map
  * /move_base/global_costmap/inflation_layer/cost_scaling_factor: 4.0
  * /move_base/global_costmap/inflation_layer/enabled: True
- * /move_base/global_costmap/inflation_layer/inflation_radius: 0.45
+ * /move_base/global_costmap/inflation_layer/inflation_radius: 0.15
  * /move_base/global_costmap/obstacle_layer/combination_method: 1
  * /move_base/global_costmap/obstacle_layer/enabled: True
  * /move_base/global_costmap/obstacle_layer/observation_sources: scan
@@ -266,7 +266,7 @@ PARAMETERS
  * /move_base/local_costmap/height: 4.0
  * /move_base/local_costmap/inflation_layer/cost_scaling_factor: 4.0
  * /move_base/local_costmap/inflation_layer/enabled: True
- * /move_base/local_costmap/inflation_layer/inflation_radius: 0.45
+ * /move_base/local_costmap/inflation_layer/inflation_radius: 0.15
  * /move_base/local_costmap/obstacle_layer/combination_method: 1
  * /move_base/local_costmap/obstacle_layer/enabled: True
  * /move_base/local_costmap/obstacle_layer/observation_sources: scan
@@ -379,771 +379,944 @@ NODES
     zoo_driver (zoo_bringup/zoo_driver)
   /camera/
     camera (orbbec_camera/orbbec_camera_node)
-[33m[ WARN] [1778924070.971170616]: IMU calibration NOT found.[0m
-[0m[ INFO] [1778924070.811369142]: port:/dev/zoo buadrate:1000000[0m
-[0m[ INFO] [1778924070.822213047]: motor_encoder:1769103967 motor_ratio:1000000[0m
-[0m[ INFO] [1778924070.822384251]: diff_wheel_radius:1769103967 diff_wheel_track:1000000[0m
-[0m[ INFO] [1778924071.038846733]: BaseDriver startup[0m
-[0m[ INFO] [1778924071.042105738]: connected to main board[0m
+[0m[ INFO] [1778934002.769348912]: port:/dev/zoo buadrate:1000000[0m
+[0m[ INFO] [1778934002.770474133]: motor_encoder:1769103967 motor_ratio:1000000[0m
+[0m[ INFO] [1778934002.770497757]: diff_wheel_radius:1769103967 diff_wheel_track:1000000[0m
+[0m[ INFO] [1778934002.783921665]: BaseDriver startup[0m
+[0m[ INFO] [1778934002.785151008]: connected to main board[0m
 Transport main read/write started
-[05/16 17:34:31.113208][info][339444][Context.cpp:68] Context created with config: /home/bcsh/bcsh/upros_class_code/src/upros_hardware/orbbecsdk/config/OrbbecSDKConfig_v1.0.xml
-[05/16 17:34:31.113225][info][339444][Context.cpp:73] Work directory=/home/bcsh/.ros, SDK version=v1.10.8-20240604-d1671a3
-[05/16 17:34:31.113240][info][339444][LinuxPal.cpp:32] createObPal: create LinuxPal!
-[05/16 17:34:31.196326][warning][339444][OpenNIDeviceInfo.cpp:186] New openni device matched.
-[05/16 17:34:31.196457][info][339444][LinuxPal.cpp:143] Create PollingDeviceWatcher!
-[05/16 17:34:31.196490][info][339444][DeviceManager.cpp:15] Current found device(s): (1)
-[05/16 17:34:31.196497][info][339444][DeviceManager.cpp:24] 	- Name: DaBai DCW2, PID: 0x06a0, SN/ID: CH8L352010Z, Connection: USB2.0
-[33m[ WARN] [1778924071.797260668]: Calibrating accelerometer and gyroscope, make sure robot is stationary and level.[0m
-[33m[ WARN] [1778924071.808765182]: remove_duplicates parameter not provided. Defaulting to true[0m
-[33m[ WARN] [1778924072.087276810]: Publishing dynamic camera transforms (/tf) at 10 Hz[0m
-[33m[ WARN] [1778924072.212044728]: Device does not support temperature reading[0m
-[0m[ INFO] [1778924071.281191102]: queryDevice: first query device[0m
-[0m[ INFO] [1778924071.370172958]: deviceConnectCallback : deviceConnectCallback start[0m
-[0m[ INFO] [1778924071.470320712]: deviceConnectCallback : Before process lock lock[0m
-[0m[ INFO] [1778924071.470355128]: deviceConnectCallback : After process lock lock[0m
-[0m[ INFO] [1778924071.470365044]: deviceConnectCallback : selectDevice start[0m
-[0m[ INFO] [1778924071.470379044]: Connecting to the default device[0m
-[0m[ INFO] [1778924071.600002504]: deviceConnectCallback : selectDevice end[0m
-[0m[ INFO] [1778924071.787475779]: Setting ThresholdFilter......[0m
-[0m[ INFO] [1778924071.787563276]: set ThresholdFilter to false[0m
-[0m[ INFO] [1778924071.787631233]: Skip setting ThresholdFilter[0m
-[0m[ INFO] [1778924071.787676732]: Setting EdgeNoiseRemovalFilter......[0m
-[0m[ INFO] [1778924071.787709981]: Skip setting EdgeNoiseRemovalFilter[0m
-[0m[ INFO] [1778924071.787761897]: Setting SpatialAdvancedFilter......[0m
-[0m[ INFO] [1778924071.787802146]: set SpatialAdvancedFilter to false[0m
-[0m[ INFO] [1778924071.787837728]: Skip setting SpatialAdvancedFilter[0m
-[0m[ INFO] [1778924071.787881769]: Setting TemporalFilter......[0m
-[0m[ INFO] [1778924071.787915018]: set TemporalFilter to false[0m
-[0m[ INFO] [1778924071.787954100]: Skip setting TemporalFilter[0m
-[0m[ INFO] [1778924071.787997849]: Setting HoleFillingFilter......[0m
-[0m[ INFO] [1778924071.788036057]: set HoleFillingFilter to false[0m
-[0m[ INFO] [1778924071.788071348]: Skip setting HoleFillingFilter[0m
-[0m[ INFO] [1778924071.790030134]:  stream depth is enabled - width: 640, height: 400, fps: 10, Format: Y11[0m
-[0m[ INFO] [1778924071.790386250]:  stream ir is enabled - width: 640, height: 400, fps: 10, Format: Y10[0m
-[0m[ INFO] [1778924071.790801573]:  stream color is enabled - width: 640, height: 480, fps: 10, Format: MJPG[0m
-[0m[ INFO] [1778924072.086940235]: Publishing static transform from camera_link to ir[0m
-[0m[ INFO] [1778924072.086993900]: Translation 0, 0, 0[0m
-[0m[ INFO] [1778924072.087021608]: Rotation 0, 0, 0, 1[0m
-[0m[ INFO] [1778924072.087044941]: Publishing static transform from camera_link to color[0m
-[0m[ INFO] [1778924072.087066815]: Translation 12.3634, 0.022862, 1.67076[0m
-[0m[ INFO] [1778924072.087084898]: Rotation -0.00149109, -0.000710887, 0.000337395, 0.999999[0m
-[0m[ INFO] [1778924072.087103272]: Publishing static transform from camera_link to depth[0m
-[0m[ INFO] [1778924072.087123397]: Translation 0, 0, 0[0m
-[0m[ INFO] [1778924072.087140897]: Rotation 0, 0, 0, 1[0m
-[0m[ INFO] [1778924072.130592644]: Stream left_ir is disabled.[0m
-[0m[ INFO] [1778924072.130664392]: Stream right_ir is disabled.[0m
-[0m[ INFO] [1778924072.203278605]: stream depth exposure 8000[0m
-[0m[ INFO] [1778924072.204295039]: stream ir exposure 8000[0m
-[0m[ INFO] [1778924072.208974427]: stream color exposure 100[0m
-[0m[ INFO] [1778924072.210015360]: stream depth gain 4000[0m
-[0m[ INFO] [1778924072.210657595]: stream ir gain 4000[0m
-[0m[ INFO] [1778924072.211167124]: stream color gain 0[0m
-[0m[ INFO] [1778924072.211967438]: Device DaBai DCW2 connected[0m
-[0m[ INFO] [1778924072.212138059]: Serial number: CH8L352010Z[0m
-[0m[ INFO] [1778924072.212226723]: Firmware version: RD1014[0m
-[0m[ INFO] [1778924072.212315971]: Hardware version: [0m
-[0m[ INFO] [1778924072.212370803]: device uid: 1-1.1-4[0m
-[0m[ INFO] [1778924072.212424760]: device connection Type: USB2.0[0m
-[0m[ INFO] [1778924072.212488634]: Current node pid: 339444[0m
-[0m[ INFO] [1778924072.212549591]: deviceConnectCallback : deviceConnectCallback end[0m
-[0m[ INFO] [1778924072.370672874]: Image stream color subscribed[0m
-[0m[ INFO] [1778924072.371337566]: set align mode to HW[0m
-[0m[ INFO] [1778924072.833287671]: Received first frame set[0m
-[0m[ INFO] [1778924073.104461451]: Create color frame read thread.[0m
-[0m[ INFO] [1778924073.104665613]: Image stream color subscribed[0m
-[0m[ INFO] [1778924073.104710237]: pipe line already started[0m
-[0m[ INFO] [[33m[ WARN] [1778924073.905911903]: Camera calibration file /home/bcsh/.ros/camera_info/camera_color.yaml not found.[0m
-[33m[ WARN] [1778924073.906030025]: Camera calibration file /home/bcsh/.ros/camera_info/camera_ir.yaml not found.[0m
-[33m[ WARN] [1778924074.270796254]: TebLocalPlannerROS() Param Warning: max_vel_x_backwards <= penalty_epsilon. The resulting bound is negative. Undefined behavior... Change at least one of them![0m
-[33m[ WARN] [1778924074.468361279]: TebLocalPlannerROS() Param Warning: max_vel_x_backwards <= penalty_epsilon. The resulting bound is negative. Undefined behavior... Change at least one of them![0m
-[0m[ INFO] [1778924071.686954992]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924071.794494276]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924071.887421704]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924071.987361796]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924072.094990916]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924072.205693547]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924072.289591197]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924072.382489173]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924072.490773362]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924072.594935525]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924072.698691115]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924072.786648376]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924072.902922581]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924072.984504454]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924073.084886712]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924073.185402553]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924073.284148018]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924073.380070802]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924073.495221541]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924073.606000594]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924073.715629340]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924073.782949351]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924073.887560093]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924073.978130047]: Published filtered LaserScan with 666 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924074.078934051]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924074.183914040]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924074.291033937]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924074.398098710]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924074.480958936]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924074.588697735]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924074.696450824]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924074.794248110]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924074.879728024]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924074.978324458]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924075.079801911]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924075.187857166]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924075.284758479]: Published filtered LaserScan with 666 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924075.377696429]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924075.487171776]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924075.579002001]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924075.676125268]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924075.776264879]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924075.899251070]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924075.979240495]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924076.083864962]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924076.173112838]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924076.275812060]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924076.383999153]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924076.492300867]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924076.596780380]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924076.680030274]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924076.784004633]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924076.875844781]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924076.975955524]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924077.068920315]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924077.179505148]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924077.285507132]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924077.373380421]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924077.489032550]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924077.574354400]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924077.677121585]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924077.772827397]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924077.872211912]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924077.969795721]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924078.069883140]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924078.175793257]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924078.267788579]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924078.375902768]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924078.474425727]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924078.585047024]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924078.674000043]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924078.773512311]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924078.873054329]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924078.969869620]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924079.065548024]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924079.167741527]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924079.268505605]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924079.372470357]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924079.491348549]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924079.568919258]: Published filtered LaserScan with 666 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924079.667429973]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924079.774553109]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924079.869042710]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924079.967254765]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924080.074397738]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924080.189018287]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924080.286989437]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924080.366178279]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924080.481595351]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924080.567388829]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924080.676125725]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924080.767030542]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924080.887106295]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924081.023993029]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924081.062741785]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924081.168545173]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924081.264512042]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924081.363910872]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924081.461191669]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924081.603212497]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924081.664110482]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924081.770439441]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924081.870544671]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924081.968386621]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924082.065057561]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924082.161283429]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924082.260407521]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924082.373177210]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924082.463504259]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924082.567373657]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924082.663557818]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924082.761936136]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924082.862258658]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924082.956733985]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924083.058226941]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924083.160405884]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924083.260720246]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924083.366885596]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924083.463221426]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924083.555805343]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924083.664784044]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924083.768483702]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924083.856286148]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924083.964570990]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924084.062872027]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924084.152918218]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924084.263678966]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924084.355475991]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924084.454866672]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924084.559491480]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924084.657957016]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924084.782716271]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924084.853295041]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924084.951311129]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924085.056545218]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924085.155087757]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924085.250105004]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924085.352768697]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924085.452217132]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924085.554388504]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924085.650985089]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924085.753110961]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924085.860419630]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924085.958273269]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924086.050804409]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924086.155205818]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924086.255673902]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924086.359102917]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924086.449583107]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924086.551579781]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924086.650778560]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924086.749562891]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924086.850336343]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924086.946913100]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924087.055797616]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924087.158452572]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924087.247895625]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924087.356798227]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924087.452160810]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924087.547422478]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924087.646597056]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924087.749044349]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924087.853882379]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924087.945112432]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924088.047480397]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924088.145002435]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924088.247055993]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924088.342771781]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924088.463849733]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924088.548085786]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924088.645063879]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924088.750925641]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924088.844942510]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924088.950298533]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924089.049048754]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924089.146291679]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924089.246300415]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924089.390751418]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924089.452080505]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924089.547437265]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924089.646220737]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924089.753170980]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924089.852764684]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924089.951534157]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924090.043370292]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924090.140910424]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924090.242931620]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924090.342780823]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924090.438723534]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924090.538845148]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924090.640911551]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924090.742403092]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924090.844113669]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924090.942909689]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924091.043376047]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924091.142557939]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924091.243963154]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924091.356262161]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924091.442588555]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924091.541257417]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924091.668050758]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924091.741130831]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924091.839930065]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924091.940205389]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924092.073866160]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924092.147996213]: Published filtered LaserScan with 666 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924092.235433837]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924092.344200265]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924092.449574978]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924092.537128099]: Published filtered LaserScan with 667 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924092.645339789]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924092.739569883]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924092.838278415]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924092.940112960]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924093.038873410]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924093.129362677]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924093.250439788]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924093.366803089]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924093.441874917]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924093.532869340]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924093.652014203]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924093.743321868]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924093.841001721]: Published filtered LaserScan with 666 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924093.938048964]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924094.045650509]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924094.142696007]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924094.238076127]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924094.341478646]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924094.434129120]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924094.532780498]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924094.631701078]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924094.728472124]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924094.825529288]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924094.925404472]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924095.032649614]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924095.135315115]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924095.236891265]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924095.330740174]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924095.431109727]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924095.535164404]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924095.625586017]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924095.728739173]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924095.825406393]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924095.935294271]: Published filtered LaserScan with 666 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924096.022657245]: Published filtered LaserScan with 655 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924096.157486439]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924096.234638982]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924096.325263886]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924096.433944006]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924096.553986618]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924096.626911549]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924096.730487326]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924096.830293397]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924096.921204128]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924097.024536953]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924097.123145765]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924097.232710496]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924097.335098056]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924097.422036381]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924097.523138303]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924097.623189666]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924097.720147098]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924097.821967963]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924097.944399277]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924098.027037368]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924098.123074327]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924098.221470232]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924098.337777858]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924098.426869807]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924098.519498717]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924098.621162674]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924098.722117896]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924098.824155178]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924098.922142467]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924099.020189840]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924099.121694264]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924099.222268000]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924099.326233160]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924099.427494340]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924099.518687704]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924099.618947615]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924099.718296670]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924099.817237402]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924099.944061423]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924100.027700792]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924100.147017488]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924100.217612361]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924100.345345202]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924100.413825248]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924100.519149258]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924100.624742762]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924100.718357202]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924100.820651447]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924100.929118970]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924101.014657050]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924101.119533951]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924101.217925497]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924101.314287089]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924101.417607108]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924101.513961117]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924101.615558883]: Published filtered LaserScan with 655 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924101.713493398]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924101.815058789]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924101.915215463]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924102.020791474]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924102.121453600]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924102.236477363]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924102.312614953]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924102.415920686]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924102.513254095]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924102.612487086]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924102.712205691]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924102.824615887]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924102.921565763]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924103.018176438]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924103.118264874]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924103.213310213]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924103.319242060]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924103.416547766]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924103.515109652]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924103.610680855]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924103.709193451]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924103.809642961]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924103.910499338]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924104.009224263]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924104.109632655]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924104.214847606]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924104.310399273]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924104.410254969]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924104.510543197]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924104.609896363]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924104.709776558]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924104.812695269]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924104.946972116]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924105.036259507]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924105.109344011]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924105.203978411]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924105.309202410]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924105.424581434]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924105.510032038]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924105.640627557]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924105.705772195]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924105.811016902]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924105.905608720]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924106.004578649]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924106.108035776]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924106.207390118]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924106.303846525]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924106.403575359]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924106.505273191]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924106.602713951]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924106.702143834]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924106.819521027]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924106.976007230]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924107.016586791]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924107.112614171]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924107.227418344]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924107.303424999]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924107.403796366]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924107.499826079]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924107.604253564]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924107.697875622]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924107.810053687]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924107.918932199]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924108.059360768]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924108.097092561]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924108.199216228]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924108.301846217]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924108.403893761]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924108.510053130]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924108.600430473]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924108.702720678]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924108.803754702]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924108.916506468]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924108.999373559]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924109.099224323]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924109.209962472]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924109.309379829]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924109.408373403]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924109.504933364]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924109.596287190]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924109.698178700]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924109.803351972]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924109.930137852]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924110.013797389]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924110.095988129]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924110.206884072]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924110.309595737]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924110.399951505]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924110.498833670]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924110.593115187]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924110.700618246]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924110.813307900]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924110.899455303]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924110.995149913]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924111.099425173]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924111.196346220]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924111.311234123]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924111.434735921]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924111.494148288]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924111.597028246]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924111.699993952]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924111.791962315]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924111.904412814]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924111.995496279]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924112.091074527]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924112.196884509]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924112.297635352]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924112.400235029]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924112.495635072]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924112.608618148]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924112.690980684]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924112.789544366]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924112.895836171]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924112.997882569]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924113.093810814]: Published filtered LaserScan with 666 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924113.193758429]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924113.293229472]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924113.388350401]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924113.492959623]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924113.588540500]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924113.685099898]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924113.788438648]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924113.906167334]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924113.987972220]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924114.091848796]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924114.197367712]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924114.287019431]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924114.392894756]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924114.485436538]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924114.596883450]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924114.686046347]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924114.809777117]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924114.886080710]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924114.985543883]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924115.096611933]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924115.195634412]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924115.299585659]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924115.381742295]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924115.491129508]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924115.582498819]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924115.683956662]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924115.786338194]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924115.883175553]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924115.982605482]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924116.101038253]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924116.184735444]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924116.286617657]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924116.389789302]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924116.479533195]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924116.583053373]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924116.682582763]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924116.791197664]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924116.878006287]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924116.978318493]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924117.087112479]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924117.179603233]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924117.280686011]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924117.385527416]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924117.479577387]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924117.590102087]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924117.680021855]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924117.786767219]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924117.881179141]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924117.982429915]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924118.085528654]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924118.196301853]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924118.295658006]: Published filtered LaserScan with 667 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924118.380096606]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924118.480351365]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924118.575030452]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924118.711611513]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924118.784043037]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924118.877018245]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924118.981515787]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924119.073372481]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924119.182227143]: Published filtered LaserScan with 656 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924119.279364349]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924119.388055682]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924119.476520658]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924119.580540757]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924119.687358464]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924119.787540604]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924119.888792847]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924119.977599940]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924120.079465257]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924120.208561450]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924120.282065417]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924120.376713306]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924120.479676142]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924120.583080551]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924120.675379408]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924120.770889153]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924120.872020653]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924120.971210570]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924121.082913598]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924121.182959835]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924121.271629856]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924121.382532277]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924121.477509456]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924121.575077454]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924121.674262709]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924121.771000933]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924121.903674347]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924121.970846370]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924122.069913798]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924122.179345089]: Published filtered LaserScan with 666 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924122.272326148]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924122.371157041]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924122.479766142]: Published filtered LaserScan with 665 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924122.568363836]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924122.668443327]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924122.768244282]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924122.870358688]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924122.972059227]: Published filtered LaserScan with 667 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924123.071473153]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924123.170999368]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924123.271591895]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924123.364446670]: Published filtered LaserScan with 655 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924123.491692004]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924123.575113896]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924123.688752687]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924123.782722771]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924123.864850274]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924123.978209070]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924124.065018018]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924124.167327555]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924124.269783797]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924124.366075795]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924124.463621641]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924124.566945281]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924124.681958965]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924124.762883372]: Published filtered LaserScan with 666 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924124.870781123]: Published filtered LaserScan with 666 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924124.969345156]: Published filtered LaserScan with 655 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924125.062316894]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924125.161186884]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924125.276545607]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924125.368254165]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924125.466967241]: Published filtered LaserScan with 666 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924125.564973333]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924125.662640806]: Published filtered LaserScan with 660 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924125.762395985]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924125.876453320]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924125.972005088]: Published filtered LaserScan with 657 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924126.057798482]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924126.166515810]: Published filtered LaserScan with 661 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924126.261625717]: Published filtered LaserScan with 659 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924126.361684228]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924126.460376601]: Published filtered LaserScan with 658 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924126.566500775]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924126.667525557]: Published filtered LaserScan with 663 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924126.770997371]: Published filtered LaserScan with 664 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924126.867863658]: Published filtered LaserScan with 662 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924126.956446203]: Published filtered LaserScan with 667 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924127.056747378]: Published filtered LaserScan with 712 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924127.161886911]: Published filtered LaserScan with 763 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924127.259483521]: Published filtered LaserScan with 803 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924127.357129712]: Published filtered LaserScan with 880 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924127.458964732]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924127.556981624]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924127.656900726]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924127.764386377]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924127.856623724]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924127.964094792]: Published filtered LaserScan with 877 points (after trim and radius filter)[33m[ WARN] [1778924127.983307929]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924128.104202968]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924128.156930526]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924128.251796031]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924128.347773929]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924128.450109443]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924128.597693464]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924128.657562038]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924128.760323960]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924128.933342821]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924129.059759290]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924129.183519609]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924129.284400617]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924129.346497481]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924129.445359906]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924129.551543887]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924129.693133124]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924129.783106902]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924129.907983407]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924129.969076958]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924130.120021796]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924130.253581916]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924130.348725966]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924130.466875617]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924130.558205913]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924130.740508055]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924130.858876743]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[31m[ERROR] [1778924130.913819760]: Aborting because a valid control could not be found. Even after executing all recovery behaviors[0m
-[0m
-[0m[ INFO] [1778924128.061080667]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924128.154629616]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924128.257824654]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924128.356148378]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924128.459243668]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924128.555794095]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924128.656245482]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924128.757904928]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924128.854294067]: Published filtered LaserScan with 875 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924128.961023155]: Published filtered LaserScan with 879 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924129.051393882]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924129.158382845]: Published filtered LaserScan with 879 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924129.258398496]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924129.368823804]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924129.454740001]: Published filtered LaserScan with 879 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924129.558419492]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924129.650998091]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924129.760382754]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924129.860872062]: Published filtered LaserScan with 880 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924129.959765403]: Published filtered LaserScan with 875 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924130.064408835]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924130.159560760]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924130.260280193]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924130.352718216]: Published filtered LaserScan with 875 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924130.449073532]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924130.551900212]: Published filtered LaserScan with 879 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924130.650130030]: Published filtered LaserScan with 875 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924130.751011918]: Published filtered LaserScan with 880 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924130.849898265]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924130.951776756]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924131.054244114]: Published filtered LaserScan with 879 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924131.149559081]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924131.257046794]: Published filtered LaserScan with 880 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924131.371049912]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924131.481292651]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924131.55344101[33m[ WARN] [1778924132.255184830]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924132.379795066]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924132.453427407]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924132.529451364]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924132.657423280]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924132.749739981]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924132.822268969]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924132.957016161]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924133.033908684]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924133.116635881]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924133.221357203]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924133.407232796]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924133.563018056]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924133.634131036]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924133.728287536]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924133.821795383]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924133.954552873]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924134.038932620]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924134.176011067]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924134.216356480]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924134.364188163]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924134.488999948]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924134.619086416]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924134.749686789]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924134.925252188]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[33m[ WARN] [1778924135.029917226]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-9]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924131.647672175]: Published filtered LaserScan with 881 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924131.753004808]: Published filtered LaserScan with 879 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924131.849598416]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924131.958090608]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924132.044728675]: Published filtered LaserScan with 875 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924132.160004022]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924132.257367618]: Published filtered LaserScan with 874 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924132.347178371]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924132.449833565]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924132.556430551]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924132.668538756]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924132.760936247]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924132.856905997]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924132.946386007]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924133.049072702]: Published filtered LaserScan with 879 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924133.148414345]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924133.260118897]: Published filtered LaserScan with 875 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924133.351905655]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924133.462956012]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924133.558131866]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924133.654563903]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924133.745231267]: Published filtered LaserScan with 879 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924133.861917382]: Published filtered LaserScan with 873 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924133.971386064]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924134.052147179]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924134.147712696]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924134.247154383]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924134.347056602]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924134.442421165]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924134.548290176]: Published filtered LaserScan with 878 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924134.651708364]: Published filtered LaserScan with 876 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924134.745018761]: Published filtered LaserScan with 875 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924134.842242369]: Published filtered LaserScan with 879 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924134.953618225]: Published filtered LaserScan with 877 points (after trim and radius filter)[0m
-[0m[ INFO] [1778924135.042865500]: Published filtered LaserScan wit[33m[ WARN] [1778924135.119741409]: TebLocalPlannerROS: trajectory is not feasible. Resetting planner...[0m
-[31m[ERROR] [1778924135.185284552]: Aborting because a valid control could not be found. Even after executing all recovery behaviors[0m
+[33m[ WARN] [1778934002.975059077]: IMU calibration NOT found.[0m
+[05/16 20:20:03.120936][info][200965][Context.cpp:68] Context created with config: /home/bcsh/bcsh/upros_class_code/src/upros_hardware/orbbecsdk/config/OrbbecSDKConfig_v1.0.xml
+[05/16 20:20:03.120985][info][200965][Context.cpp:73] Work directory=/home/bcsh/.ros, SDK version=v1.10.8-20240604-d1671a3
+[05/16 20:20:03.121230][info][200965][LinuxPal.cpp:32] createObPal: create LinuxPal!
+[05/16 20:20:03.232019][warning][200965][OpenNIDeviceInfo.cpp:186] New openni device matched.
+[05/16 20:20:03.232239][info][200965][LinuxPal.cpp:143] Create PollingDeviceWatcher!
+[05/16 20:20:03.232345][info][200965][DeviceManager.cpp:15] Current found device(s): (1)
+[05/16 20:20:03.232370][info][200965][DeviceManager.cpp:24] 	- Name: DaBai DCW2, PID: 0x06a0, SN/ID: CH8L352010Z, Connection: USB2.0
+[33m[ WARN] [1778934003.636305947]: remove_duplicates parameter not provided. Defaulting to true[0m
+[33m[ WARN] [1778934004.026933601]: Calibrating accelerometer and gyroscope, make sure robot is stationary and level.[0m
+[33m[ WARN] [1778934004.139484019]: Publishing dynamic camera transforms (/tf) at 10 Hz[0m
+[33m[ WARN] [1778934004.170441896]: Device does not support temperature reading[0m
+[0m[ INFO] [1778934003.290150492]: queryDevice: first query device[0m
+[0m[ INFO] [1778934003.297649342]: deviceConnectCallback : deviceConnectCallback start[0m
+[0m[ INFO] [1778934003.397799869]: deviceConnectCallback : Before process lock lock[0m
+[0m[ INFO] [1778934003.397833118]: deviceConnectCallback : After process lock lock[0m
+[0m[ INFO] [1778934003.397844493]: deviceConnectCallback : selectDevice start[0m
+[0m[ INFO] [1778934003.397857909]: Connecting to the default device[0m
+[0m[ INFO] [1778934003.640264346]: deviceConnectCallback : selectDevice end[0m
+[0m[ INFO] [1778934003.781567406]: Setting ThresholdFilter......[0m
+[0m[ INFO] [1778934003.781601238]: set ThresholdFilter to false[0m
+[0m[ INFO] [1778934003.781630696]: Skip setting ThresholdFilter[0m
+[0m[ INFO] [1778934003.781650237]: Setting EdgeNoiseRemovalFilter......[0m
+[0m[ INFO] [1778934003.781658987]: Skip setting EdgeNoiseRemovalFilter[0m
+[0m[ INFO] [1778934003.781668611]: Setting SpatialAdvancedFilter......[0m
+[0m[ INFO] [1778934003.781676778]: set SpatialAdvancedFilter to false[0m
+[0m[ INFO] [1778934003.781685819]: Skip setting SpatialAdvancedFilter[0m
+[0m[ INFO] [1778934003.781695152]: Setting TemporalFilter......[0m
+[0m[ INFO] [1778934003.781703027]: set TemporalFilter to false[0m
+[0m[ INFO] [1778934003.781712360]: Skip setting TemporalFilter[0m
+[0m[ INFO] [1778934003.781724318]: Setting HoleFillingFilter......[0m
+[0m[ INFO] [1778934003.781734818]: set HoleFillingFilter to false[0m
+[0m[ INFO] [1778934003.781745318]: Skip setting HoleFillingFilter[0m
+[0m[ INFO] [1778934003.783655394]:  stream depth is enabled - width: 640, height: 400, fps: 10, Format: Y11[0m
+[0m[ INFO] [1778934003.784300253]:  stream ir is enabled - width: 640, height: 400, fps: 10, Format: Y10[0m
+[0m[ INFO] [1778934003.784726367]:  stream color is enabled - width: 640, height: 480, fps: 10, Format: MJPG[0m
+[0m[ INFO] [1778934004.138758371]: Publishing static transform from camera_link to ir[0m
+[0m[ INFO] [1778934004.138817578]: Translation 0, 0, 0[0m
+[0m[ INFO] [1778934004.138932783]: Rotation 0, 0, 0, 1[0m
+[0m[ INFO] [1778934004.138997532]: Publishing static transform from camera_link to color[0m
+[0m[ INFO] [1778934004.139069863]: Translation 12.3634, 0.022862, 1.67076[0m
+[0m[ INFO] [1778934004.139126737]: Rotation -0.00149109, -0.000710887, 0.000337395, 0.999999[0m
+[0m[ INFO] [1778934004.139206068]: Publishing static transform from camera_link to depth[0m
+[0m[ INFO] [1778934004.139262942]: Translation 0, 0, 0[0m
+[0m[ INFO] [1778934004.139314565]: Rotation 0, 0, 0, 1[0m
+[0m[ INFO] [1778934004.153283292]: Stream left_ir is disabled.[0m
+[0m[ INFO] [1778934004.153450413]: Stream right_ir is disabled.[0m
+[0m[ INFO] [1778934004.167250852]: stream depth exposure 8000[0m
+[0m[ INFO] [1778934004.167997208]: stream ir exposure 8000[0m
+[0m[ INFO] [1778934004.168362074]: stream color exposure 100[0m
+[0m[ INFO] [1778934004.168948892]: stream depth gain 4000[0m
+[0m[ INFO] [1778934004.169594334]: stream ir gain 4000[0m
+[0m[ INFO] [1778934004.169949283]: stream color gain 0[0m
+[0m[ INFO] [1778934004.170371023]: Device DaBai DCW2 connected[0m
+[0m[ INFO] [1778934004.170525019]: Serial number: CH8L352010Z[0m
+[0m[ INFO] [1778934004.170556810]: Firmware version: RD1014[0m
+[0m[ INFO] [1778934004.170583059]: Hardware version: [0m
+[0m[ INFO] [1778934004.170598225]: device uid: 1-1.1-4[0m
+[0m[ INFO] [1778934004.170621266]: device connection Type: USB2.0[0m
+[0m[ INFO] [1778934004.170640807]: Current node pid: 200965[0m
+[0m[ INFO] [1778934004.170665890]: deviceConnectCallback : deviceConnectCallback end[0m
+[0m[ INFO] [1778934004.321645911]: Image stream color subscribed[0m
+[0m[ INFO] [1778934004.322033526]: set align mode to HW[0m
+[0m[ INFO] [1778934004.825722586]: Received first frame set[0m
+[0m[ INFO] [1778934005.065648754]: Create color frame read thread.[0m
+[0m[ INFO] [1778934005.065792833]: Image stream color subscribed[0m
+[0m[ INFO] [1778934005.065833374]: pipe line already started[0m
+[0m[ INFO] [[33m[ WARN] [1778934005.883418339]: Camera calibration file /home/bcsh/.ros/camera_info/camera_color.yaml not found.[0m
+[33m[ WARN] [1778934005.883626000]: Camera calibration file /home/bcsh/.ros/camera_info/camera_ir.yaml not found.[0m
+[33m[ WARN] [1778934006.034811350]: TebLocalPlannerROS() Param Warning: max_vel_x_backwards <= penalty_epsilon. The resulting bound is negative. Undefined behavior... Change at least one of them![0m
+[33m[ WARN] [1778934006.168343734]: TebLocalPlannerROS() Param Warning: max_vel_x_backwards <= penalty_epsilon. The resulting bound is negative. Undefined behavior... Change at least one of them![0m
+[0m[ INFO] [1778934003.751625962]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934003.857478426]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934003.947832703]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934004.058842578]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934004.151112764]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934004.252598507]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934004.387454440]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934004.457686855]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934004.551839702]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934004.646519285]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934004.761132610]: Published filtered LaserScan with 849 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934004.881103422]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934004.966271123]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934005.050721343]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934005.146485899]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934005.252088703]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934005.348976147]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934005.456409113]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934005.620304680]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934005.643484880]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934005.745128702]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934005.853564101]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934005.948925584]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934006.042306700]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934006.152830088]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934006.253264108]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934006.357874688]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934006.453146923]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934006.548745233]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934006.652231467]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934006.750857491]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934006.849314937]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934006.945549064]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934007.065447546]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934007.150278672]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934007.269158388]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934007.347095566]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934007.450703713]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934007.548384179]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934007.651278636]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934007.742976879]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934007.839526874]: Published filtered LaserScan with 849 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934007.959618725]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934008.046445676]: Published filtered LaserScan with 849 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934008.149319134]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934008.249854360]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934008.345507794]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934008.446342554]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934008.552050065]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934008.644693576]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934008.742758740]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934008.840076090]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934008.939598967]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934009.038108911]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934009.146036532]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934009.238414050]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934009.345117577]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934009.460759584]: Published filtered LaserScan with 835 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934009.539271622]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934009.642363825]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934009.743297749]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934009.839792329]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934009.939794402]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934010.038537382]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934010.138860572]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934010.242572551]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934010.349555487]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934010.515475170]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934010.556386210]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934010.635562648]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934010.736170789]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934010.841487477]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934010.936477970]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934011.032461562]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934011.136279121]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934011.241198278]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934011.336588344]: Published filtered LaserScan with 849 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934011.431811873]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934011.535290232]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934011.643488805]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934011.747537942]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934011.845959805]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934011.939364839]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934012.037244800]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934012.144905261]: Published filtered LaserScan with 849 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934012.234223857]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934012.338355242]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934012.438179112]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934012.536788513]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934012.632255286]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934012.730682108]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934012.833890099]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934012.928455062]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934013.096832266]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934013.148626861]: Published filtered LaserScan with 849 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934013.237213684]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934013.350765079]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934013.434020372]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934013.531125103]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934013.627220109]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934013.738327983]: Published filtered LaserScan with 852 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934013.834588652]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934013.928012061]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934014.047397223]: Published filtered LaserScan with 849 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934014.127845296]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934014.237476207]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934014.330643247]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934014.440321408]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934014.537345641]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934014.627160058]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934014.727358418]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934014.829790597]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934014.924073233]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934015.024009684]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934015.129144085]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934015.226795386]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934015.330495116]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934015.466729432]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934015.526910980]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934015.628214729]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934015.765272691]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934015.830946183]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934015.928445529]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934016.029942940]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934016.124170745]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934016.225625573]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934016.323206876]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934016.426197874]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934016.527921321]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934016.629875179]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934016.740967595]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934016.821864531]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934016.927333174]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934017.020983785]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934017.131319055]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934017.224638341]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934017.322211186]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934017.430289596]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934017.523235266]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934017.620067588]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934017.721179426]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934017.824912697]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934017.924125833]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934018.021745926]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934018.123080883]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934018.224493130]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934018.322714042]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934018.420777457]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934018.518642253]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934018.625681189]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934018.727098978]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934018.826021913]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934018.973502610]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934019.044691961]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934019.120988848]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934019.222962831]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934019.319320332]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934019.429690017]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934019.536112678]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934019.617922508]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934019.719151593]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934019.819363079]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934019.916858342]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934020.027032908]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934020.122120816]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934020.213927850]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934020.326910802]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934020.416131401]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934020.518390335]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934020.625507145]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934020.713926557]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934020.814115002]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934020.919295194]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934021.020788231]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934021.121405707]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934021.214703703]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934021.313259148]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934021.413720586]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934021.513936739]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934021.628148451]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934021.718363026]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934021.817173673]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934021.916142982]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934022.026785952]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934022.118892520]: Published filtered LaserScan with 850 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934022.210614681]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934022.311334530]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934022.410929740]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934022.511061312]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934022.612837258]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934022.711225583]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934022.816273071]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934022.906243235]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934023.008889784]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934023.110950390]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934023.209504669]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934023.317948820]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934023.417427367]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934023.518502165]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934023.614523383]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934023.706594661]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934023.814470368]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934023.913351014]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934024.005987818]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934024.114211767]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934024.211522120]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934024.309083882]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934024.430788029]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934024.514509686]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934024.603811368]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934024.715972716]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934024.817366298]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934024.917130962]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934025.006500600]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934025.113437457]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934025.247643286]: Published filtered LaserScan with 850 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934025.305943341]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934025.403233860]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934025.507054047]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934025.603898328]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934025.737213429]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934025.814113760]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934025.912698080]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934026.006274027]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934026.104501940]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934026.205540572]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934026.303139084]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934026.407129308]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934026.504583740]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934026.602131503]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934026.702470445]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934026.805606399]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934026.905811761]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934027.000724383]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934027.110745829]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934027.205334417]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934027.305650027]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934027.398794027]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934027.502328679]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934027.601034913]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934027.696156655]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934027.805178584]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934027.904798878]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934028.002891752]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934028.100829756]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934028.194685113]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934028.299184283]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934028.399665263]: Published filtered LaserScan with 849 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934028.503093168]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934028.601902066]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934028.701002915]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934028.809785100]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934028.906352014]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934029.017897962]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934029.092827260]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934029.196017463]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934029.299383245]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934029.400366463]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934029.497586693]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934029.593720492]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934029.702033107]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934029.804171586]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934029.896598105]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934029.993960082]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934030.093314675]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934030.194343100]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934030.293551863]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934030.396600611]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934030.492051053]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934030.598951162]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934030.690955067]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934030.792950342]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934030.889324177]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934031.001377905]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934031.089705445]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934031.218119505]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934031.301138556]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934031.398290830]: Published filtered LaserScan with 849 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934031.489532046]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934031.615736496]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934031.688783135]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934031.787179627]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934031.887196286]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934032.006260043]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934032.089870870]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934032.209482947]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934032.298832170]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934032.389216491]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934032.493116302]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934032.586870454]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934032.689140181]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934032.786209332]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934032.895679250]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934032.991568932]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934033.100027959]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934033.192940091]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934033.295083530]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934033.388056327]: Published filtered LaserScan with 850 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934033.490269181]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934033.607662606]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934033.689109613]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934033.840817914]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934033.894229469]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934033.996720274]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934034.090926498]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934034.189048540]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934034.291286768]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934034.390786315]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934034.485408154]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934034.583173204]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934034.689940317]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934034.792225794]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934034.890420458]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934034.999621759]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934035.086512003]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934035.183184790]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934035.286367994]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934035.380334766]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934035.521281716]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934035.588441213]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934035.693613825]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934035.776627626]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934035.894287044]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934035.986723481]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934036.087250252]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934036.188429174]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934036.277615360]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934036.382358650]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934036.476983114]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934036.576924525]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934036.678045699]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934036.782910610]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934036.881068817]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934036.977174327]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934037.075165122]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934037.175704727]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934037.281903104]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934037.381537691]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934037.489967553]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934037.580719366]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934037.691254716]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934037.772812555]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934037.878494404]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934037.976048585]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934038.079533073]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934038.207582561]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934038.280539952]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934038.374774176]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934038.500475223]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934038.576012341]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934038.674834073]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934038.775740585]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934038.871447688]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934038.981933749]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934039.068782286]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934039.173247333]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934039.271025508]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934039.378093031]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934039.478040859]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934039.567375500]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934039.670331502]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934039.772308113]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934039.869579968]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934039.972257727]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934040.090847539]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934040.168395063]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934040.267589245]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934040.366798884]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934040.473873115]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934040.567279610]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934040.672636260]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934040.798072189]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934040.885088139]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934040.987005543]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934041.071115108]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934041.173624580]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934041.281043261]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934041.379607458]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934041.466612325]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934041.570148729]: Published filtered LaserScan with 834 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934041.665157601]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934041.765988574]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934041.865605953]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934041.994955658]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934042.065709564]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934042.183935969]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934042.264356045]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934042.372782700]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934042.469691440]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934042.575217835]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934042.669272689]: Published filtered LaserScan with 835 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934042.777886589]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934042.866945904]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934042.965764429]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934043.076514441]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934043.175677707]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934043.273159557]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934043.375721237]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934043.462209575]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934043.562928260]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934043.674327797]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934043.769908321]: Published filtered LaserScan with 835 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934043.862436048]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934043.963834007]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934044.064878183]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934044.166150728]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934044.260436869]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934044.359447597]: Published filtered LaserScan with 834 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934044.527756268]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934044.567075142]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934044.662098888]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934044.768873877]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934044.868911537]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934044.965370539]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934045.075445360]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934045.153659035]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934045.262810464]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934045.367016226]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934045.456621527]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934045.556878516]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934045.653715216]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934045.757615611]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934045.858758660]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934045.969490007]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934046.065165612]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934046.164282213]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934046.256153415]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934046.357206049]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934046.454032250]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934046.560651493]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934046.700122066]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934046.764911250]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934046.852296149]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934046.956918693]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934047.057966078]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934047.151927310]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934047.260990658]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934047.367085206]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934047.458103013]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934047.548382339]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934047.654683382]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934047.756840530]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934047.852320140]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934047.954102798]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934048.053286481]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934048.155452379]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934048.250390962]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934048.364229063]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934048.486806150]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934048.546138389]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934048.657305766]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934048.748776812]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934048.873114937]: Published filtered LaserScan with 848 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934048.947730412]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934049.050227636]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934049.157433114]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934049.247623776]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934049.351518339]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934049.462504887]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934049.547293437]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934049.664946149]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934049.797988262]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934049.844687281]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934049.946453314]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934050.047687945]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934050.147250493]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934050.241336848]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934050.370196275]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934050.448595154]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934050.552063019]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934050.653446688]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934050.749230207]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934050.850067598]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934050.960980649]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934051.053961031]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934051.148145966]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934051.250289407]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934051.341019056]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934051.442316102]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934051.543609064]: Published filtered LaserScan with 835 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934051.650396012]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934051.768072932]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934051.840486672]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934051.944136825]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934052.050014379]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934052.143992820]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934052.250995595]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934052.348996017]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934052.440400856]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934052.539350045]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934052.643755887]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934052.743420517]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934052.845438836]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934052.940239756]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934053.045942606]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934053.150162369]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934053.241690289]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934053.348509611]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934053.448492441]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934053.536439077]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934053.637904994]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934053.736348738]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934053.840226385]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934053.952336405]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934054.045898065]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934054.140773358]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934054.242642932]: Published filtered LaserScan with 849 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934054.347007650]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934054.445130568]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934054.550561593]: Published filtered LaserScan with 835 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934054.639946109]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934054.730600509]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934054.834051459]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934054.935900908]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934055.035969777]: Published filtered LaserScan with 834 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934055.141524465]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934055.248818317]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934055.331567002]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934055.452814999]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934055.537775045]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934055.630330189]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934055.748437307]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934055.849425195]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934055.941254399]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934056.063603701]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934056.141558092]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934056.245838229]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934056.330311787]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934056.442140649]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934056.530555398]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934056.632811420]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934056.727281307]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934056.827290678]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934056.927470086]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934057.035473254]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934057.131028988]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934057.228169599]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934057.331651465]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934057.431176390]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934057.526200138]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934057.637914378]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934057.727277020]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934057.830917548]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934057.927619212]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934058.033192275]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934058.139273700]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934058.226189029]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934058.327695196]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934058.423118225]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934058.529437644]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934058.637873051]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934058.727715764]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934058.825339946]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934058.924624835]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934059.025330397]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934059.131788354]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934059.229799277]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934059.330663209]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934059.431656639]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934059.532069667]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934059.634602474]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934059.734427808]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934059.839327138]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934059.931608706]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934060.030333902]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934060.123825564]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934060.234964944]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934060.321078794]: Published filtered LaserScan with 835 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934060.430891999]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934060.520629424]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934060.624782398]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934060.734945886]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934060.827810481]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934060.918342677]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934061.033424123]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934061.118295797]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934061.224579633]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934061.316210802]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934061.434499916]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934061.517456263]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934061.617808043]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934061.713131909]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934061.814030841]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934061.923878170]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934062.016974926]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934062.115624291]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934062.225317916]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934062.314996134]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934062.416716962]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934062.511602756]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934062.624000354]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934062.716031387]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934062.812347769]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934062.915437062]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934063.015507391]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934063.114713241]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934063.220699878]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934063.312595873]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934063.411789765]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934063.512257917]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934063.611347979]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934063.709435024]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934063.808989116]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934063.910373953]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934064.012383524]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934064.111922449]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934064.212688969]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934064.306909779]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934064.410603683]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934064.507453510]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934064.609437998]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934064.718771133]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934064.810048519]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934064.911739014]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934065.009196951]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934065.111530556]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934065.220846774]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934065.312524025]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934065.411981578]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934065.512902968]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934065.608257750]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934065.728893556]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934065.806266962]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934065.913932973]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934066.032054967]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934066.103758809]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934066.224232161]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934066.329234739]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934066.409070916]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934066.507302042]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934066.608955789]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934066.709762266]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934066.802521864]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934066.905807445]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934067.017218652]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934067.108993317]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934067.216965570]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934067.302614807]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934067.411145296]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934067.502086982]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934067.621686231]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934067.708420441]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934067.801866314]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934067.905398055]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934068.000874751]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934068.101929138]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934068.201814847]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934068.302023131]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934068.399539108]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934068.510441662]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934068.603822495]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934068.705934730]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934068.805130373]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934068.902505479]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934069.006001055]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934069.097489894]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934069.200235322]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934069.300622976]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934069.397274767]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934069.508157197]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934069.613374437]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934069.698592894]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934069.794592535]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934069.896881808]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934070.003812546]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934070.102512368]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934070.196500436]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934070.297217082]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934070.396752800]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934070.511060767]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934070.602578481]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934070.693513751]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934070.796363010]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934070.893700783]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934070.993603700]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934071.122594378]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934071.204532835]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934071.299015557]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934071.399428002]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934071.523402724]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934071.589721954]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934071.706082619]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934071.794940692]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934071.897638871]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934071.990934831]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934072.095882287]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934072.193677966]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934072.293241683]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934072.391186400]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934072.491814966]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934072.593832704]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934072.706656709]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934072.791196476]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934072.893355086]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934072.986187599]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934073.103859273]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934073.189911001]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934073.285792229]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934073.387647805]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934073.512686499]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934073.587079732]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934073.694008138]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934073.789747327]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934073.890320769]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934073.995955083]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934074.090637008]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934074.200818872]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934074.289089252]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934074.405215424]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934074.501217982]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934074.589509945]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934074.698778624]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934074.792174623]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934074.903462751]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934074.990984150]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934075.098399043]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934075.184462730]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934075.285641948]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934075.383650830]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934075.493028882]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934075.650158261]: Published filtered LaserScan with 835 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934075.684065107]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934075.790778559]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934075.884392137]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934075.988866813]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934076.094322631]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934076.196045794]: Published filtered LaserScan with 839 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934076.291035129]: Published filtered LaserScan with 847 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934076.380741056]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934076.496047665]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934076.576876943]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934076.680807966]: Published filtered LaserScan with 829 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934076.782235970]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934076.894525364]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934076.976491238]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934077.120390954]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934077.180611297]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934077.286204779]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934077.417461941]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934077.488561758]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934077.582439579]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934077.677675948]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934077.775716039]: Published filtered LaserScan with 843 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934077.876102236]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934077.991021230]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934078.082920726]: Published filtered LaserScan with 837 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934078.176620052]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934078.284888049]: Published filtered LaserScan with 845 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934078.381034687]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934078.474972882]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934078.583879612]: Published filtered LaserScan with 834 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934078.676255972]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934078.772644396]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934078.874640260]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934078.972127073]: Published filtered LaserScan with 844 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934079.085742059]: Published filtered LaserScan with 836 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934079.172706097]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934079.270645565]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934079.382138147]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934079.474060976]: Published filtered LaserScan with 841 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934079.576942902]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934079.679405713]: Published filtered LaserScan with 840 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934079.778587941]: Published filtered LaserScan with 838 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934079.878959264]: Published filtered LaserScan with 842 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934079.979395335]: Published filtered LaserScan with 846 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934080.075146192]: Published filtered LaserScan with 887 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934080.178896387]: Published filtered LaserScan with 946 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934080.291267155]: Published filtered LaserScan with 1001 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934080.385144393]: Published filtered LaserScan with 1033 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934080.468778850]: Published filtered LaserScan with 1063 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934080.590112890]: Published filtered LaserScan with 1092 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934080.670103064]: Published filtered LaserScan with 1130 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934080.767439672]: Published filtered LaserScan with 1151 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934080.873697262]: Published filtered LaserScan with 1153 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934080.972068678]: Published filtered LaserScan with 1152 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934081.086624557]: Published filtered LaserScan with 1153 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934081.180218885]: Published filtered LaserScan with 1156 points (afte[33m[ WARN] [1778934083.481320255]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1219 seconds[0m
+[31m[ERROR] [1778934083.965327616]: Failed to get a plan.[0m
+[33m[ WARN] [1778934084.190842925]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1314 seconds[0m
+r trim and radius filter)[0m
+[0m[ INFO] [1778934081.275899744]: Published filtered LaserScan with 1156 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934081.380287507]: Published filtered LaserScan with 1158 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934081.483604880]: Published filtered LaserScan with 1159 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934081.571491145]: Published filtered LaserScan with 1161 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934081.669648191]: Published filtered LaserScan with 1160 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934081.777717277]: Published filtered LaserScan with 1161 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934081.872785651]: Published filtered LaserScan with 1162 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934081.998675409]: Published filtered LaserScan with 1163 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934082.108835983]: Published filtered LaserScan with 1162 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934082.173819997]: Published filtered LaserScan with 1163 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934082.270945736]: Published filtered LaserScan with 1162 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934082.380085795]: Published filtered LaserScan with 1162 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934082.473777246]: Published filtered LaserScan with 1162 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934082.564726517]: Published filtered LaserScan with 1163 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934082.673998114]: Published filtered LaserScan with 1165 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934082.769307399]: Published filtered LaserScan with 1163 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934082.871280223]: Published filtered LaserScan with 1163 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934082.974233897]: Published filtered LaserScan with 1163 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934083.069363228]: Published filtered LaserScan with 1160 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934083.180553651]: Published filtered LaserScan with 1164 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934083.264207650]: Published filtered LaserScan with 1162 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934083.379416262]: Published filtered LaserScan with 1162 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934083.475779021]: Published filtered LaserScan with 1163 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934083.582853840]: Published filtered LaserScan with 1162 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934083.710886127]: Published filtered LaserScan with 1162 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934083.767764347]: Published filtered LaserScan with 1164 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934083.871777036]: Published filtered LaserScan with 1169 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934084.004765780]: Published filtered LaserScan with 1171 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934084.076241838]: Published filtered LaserScan with 1170 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934084.196393200]: Published filtered LaserScan with 1166 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934084.293795432]: Published filtered LaserScan with 1163 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934084.364419262]: Published filtered LaserScan with 1159 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934084.467913673]: Published filtered LaserScan with 1129 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934084.565282364]: Published filtered LaserScan with 1118 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934084.687376760]: Published filtered LaserScan with 1111 points (after[33m[ WARN] [1778934085.562287435]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1029 seconds[0m
+[33m[ WARN] [1778934086.066717945]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1073 seconds[0m
+[33m[ WARN] [1778934086.184904399]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1255 seconds[0m
+[33m[ WARN] [1778934086.460609015]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1012 seconds[0m
+[33m[ WARN] [1778934087.174662031]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1153 seconds[0m
+[33m[ WARN] [1778934088.036000636]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1766 seconds[0m
+ trim and radius filter)[0m
+[0m[ INFO] [1778934084.776145003]: Published filtered LaserScan with 1139 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934084.871682366]: Published filtered LaserScan with 1142 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934084.972522386]: Published filtered LaserScan with 1140 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934085.076153293]: Published filtered LaserScan with 1141 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934085.172594216]: Published filtered LaserScan with 1141 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934085.267880752]: Published filtered LaserScan with 1132 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934085.361078425]: Published filtered LaserScan with 1163 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934085.464308592]: Published filtered LaserScan with 1166 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934085.569921907]: Published filtered LaserScan with 1172 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934085.658768315]: Published filtered LaserScan with 1183 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934085.787829868]: Published filtered LaserScan with 1179 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934085.884346331]: Published filtered LaserScan with 1178 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934085.982295716]: Published filtered LaserScan with 1171 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934086.070155441]: Published filtered LaserScan with 1158 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934086.197880319]: Published filtered LaserScan with 1181 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934086.264431127]: Published filtered LaserScan with 1162 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934086.370914754]: Published filtered LaserScan with 1164 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934086.461969606]: Published filtered LaserScan with 1160 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934086.574276792]: Published filtered LaserScan with 1161 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934086.661484076]: Published filtered LaserScan with 1160 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934086.765624220]: Published filtered LaserScan with 1156 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934086.872098513]: Published filtered LaserScan with 1158 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934086.965584929]: Published filtered LaserScan with 1162 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934087.059663704]: Published filtered LaserScan with 1154 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934087.201846131]: Published filtered LaserScan with 1153 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934087.258147742]: Published filtered LaserScan with 1172 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934087.365302768]: Published filtered LaserScan with 1176 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934087.468391773]: Published filtered LaserScan with 1169 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934087.565699216]: Published filtered LaserScan with 1161 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934087.655372770]: Published filtered LaserScan with 1153 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934087.760315852]: Published filtered LaserScan with 1142 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934087.858236946]: Published filtered LaserScan with 1143 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934087.958183906]: Published filtered LaserScan with 1137 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934088.057074184]: Published filtered LaserScan with 1141 points (after trim and radius filter)[0m
+[0m[ INFO] [1778934088.155868506]: Published filtered LaserScan with 1132 points (after [33m[ WARN] [1778934088.207109828]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.2477 seconds[0m
+[33m[ WARN] [1778934088.309398520]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1023 seconds[0m
+[33m[ WARN] [1778934088.499372525]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1923 seconds[0m
+[33m[ WARN] [1778934088.575699460]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1686 seconds[0m
+[33m[ WARN] [1778934088.659764989]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1526 seconds[0m
+[33m[ WARN] [1778934088.762041431]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1549 seconds[0m
+[33m[ WARN] [1778934088.835007285]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.1279 seconds[0m
+[31m[ERROR] [1778934088.965747920]: Failed to get a plan.[0m
+[33m[ WARN] [1778934089.280688290]: Control loop missed its desired rate of 10.0000Hz... the loop actually took 0.4735 seconds[0m

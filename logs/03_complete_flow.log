@@ -1,67 +1,10 @@
-[33m[ WARN] [1778924127.180621433]: Could NOT transform map to base_link: "tag_1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778924128.187751753]: Could NOT transform map to base_link: "tag_1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778924129.198377381]: Could NOT transform map to base_link: "tag_1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778924130.203028975]: Could NOT transform map to base_link: "tag_1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778924131.211177919]: Could NOT transform map to base_link: "tag_1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778924131.310670924]: ============================================================[0m
-[33m[ WARN] [1778924131.310791088]: [??????][??????] move_base ????????????[0m
-[33m[ WARN] [1778924131.310908627]: ??????: Goal 1 Grab
-??????: ABORTED
-???????????? RViz: ??????????????????????????????local_costmap???????????? footprint???[0m
-[33m[ WARN] [1778924131.310960543]: ============================================================[0m
-[33m[ WARN] [1778924131.311011000]: ============================================================[0m
-[33m[ WARN] [1778924131.311075457]: [??????][??????] ???????????? 1[0m
-[33m[ WARN] [1778924131.311173455]: ??????: Goal 1 Grab
-??????: ?????????????????????????????????????????????????????????[0m
-[33m[ WARN] [1778924131.311216621]: ============================================================[0m
-[33m[ WARN] [1778924132.214039104]: Could NOT transform map to base_link: "tag_1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778924133.215404119]: Could NOT transform map to base_link: "tag_1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778924134.221235379]: Could NOT transform map to base_link: "tag_1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778924135.221975167]: Could NOT transform map to base_link: "tag_1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778924135.584535287]: ============================================================[0m
-[33m[ WARN] [1778924135.584587202]: [??????][??????] move_base ????????????[0m
-[33m[ WARN] [1778924135.584616077]: ??????: Goal 1 Grab
-??????: ABORTED
-???????????? RViz: ??????????????????????????????local_costmap???????????? footprint???[0m
-[33m[ WARN] [1778924135.584632993]: ============================================================[0m
-[31m[ERROR] [1778924135.584650493]: ============================================================[0m
-[31m[ERROR] [1778924135.584670326]: [??????][??????] ???????????????????????????[0m
-[31m[ERROR] [1778924135.584720491]: ??????: Goal 1 Grab
-??????: ?????? false????????????????????????????????????????????????????????????????????????
-????????????: TF ?????????????????????local_costmap???footprint???????????????????????????????????????[0m
-[31m[ERROR] [1778924135.584731574]: ============================================================[0m
-[33m[ WARN] [1778924135.584753740]: Goal 1 Failed![0m
-terminate called without an active exception
-[31m[complete_flow_node-1] process has died [pid 346362, exit code -6, cmd /home/bcsh/bcsh/clean_robot_code/devel/lib/clean_desktop_robot/complete_flow_node __name:=complete_flow_node __log:=/home/bcsh/.ros/log/6fb2364a-510a-11f1-a592-488f4cee555a/complete_flow_node-1.log].
-log file: /home/bcsh/.ros/log/6fb2364a-510a-11f1-a592-488f4cee555a/complete_flow_node-1*.log[0m
-... logging to /home/bcsh/.ros/log/6fb2364a-510a-11f1-a592-488f4cee555a/roslaunch-bcsh-346227.log
-Checking log directory for disk usage. This may take a while.
-Press Ctrl-C to interrupt
-Done checking log file disk usage. Usage is <1GB.
-]2;/home/bcsh/bcsh/clean_robot_code/src/clean_desktop_robot/launch/complete_flow.launch
-[1mstarted roslaunch server http://bcsh:41927/[0m
-
-SUMMARY
-========
-
-PARAMETERS
- * /complete_flow_node/grab_1_x: 2.2
- * /complete_flow_node/grab_1_y: 2.28
- * /complete_flow_node/grab_2_x: 2.15
- * /complete_flow_node/grab_2_y: 0.28
- * /complete_flow_node/offset_left: 0.49
- * /complete_flow_node/offset_right: 0.5
- * /rosdistro: noetic
- * /rosversion: 1.17.0
-
-NODES
-  /
-    complete_flow_node (clean_desktop_robot/complete_flow_node)
-
-[1mROS_MASTER_URI=http://localhost:11311[0m
-]2;/home/bcsh/bcsh/clean_robot_code/src/clean_desktop_robot/launch/complete_flow.launch http://localhost:11311
-[1mprocess[complete_flow_node-1]: started with pid [346362][0m
-all processes on machine have died, roslaunch will exit
-shutting down processing monitor...
-... shutting down processing monitor complete
-[1mdone[0m
+[33m[ WARN] [1778934079.932904267]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
+[33m[ WARN] [1778934080.938966228]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
+[33m[ WARN] [1778934081.941228452]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
+[33m[ WARN] [1778934082.949409903]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
+[33m[ WARN] [1778934083.954869299]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
+[33m[ WARN] [1778934084.963958978]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
+[33m[ WARN] [1778934085.970932671]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
+[33m[ WARN] [1778934086.975052771]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
+[33m[ WARN] [1778934087.979359826]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
+[33m[ WARN] [1778934088.983147436]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
