@@ -17,9 +17,12 @@
 double tag_x = 0.0;
 double tag_y = 0.0;
 double tag_yaw = 0.0;
+ros::Time tag_last_seen;
 int count = 0;
 int re_grab_count = 0;
 int grab_flag = 0;
+
+const double TAG_LOST_TIMEOUT_SEC = 0.5;
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
@@ -62,6 +65,24 @@ void sleep(double second)
     ros::Duration(second).sleep();
 }
 
+void markTagLost()
+{
+    tag_x = 0.0;
+    tag_y = 0.0;
+    tag_yaw = 0.0;
+    grab_flag = 0;
+}
+
+bool isTagVisible()
+{
+    if (tag_last_seen.isZero())
+    {
+        return false;
+    }
+
+    return (ros::Time::now() - tag_last_seen).toSec() <= TAG_LOST_TIMEOUT_SEC && tag_x != 0.0;
+}
+
 void printRobotPose(tf2_ros::Buffer &tfBuffer)
 {
     try
@@ -69,8 +90,17 @@ void printRobotPose(tf2_ros::Buffer &tfBuffer)
         geometry_msgs::TransformStamped transformStamped;
         transformStamped = tfBuffer.lookupTransform("base_link", "tag_1", ros::Time(0), ros::Duration(1.0));
 
+        if (!transformStamped.header.stamp.isZero() &&
+            (ros::Time::now() - transformStamped.header.stamp).toSec() > TAG_LOST_TIMEOUT_SEC)
+        {
+            markTagLost();
+            ROS_WARN_THROTTLE(1.0, "tag_1 transform is stale. Stop tag-based forward motion.");
+            return;
+        }
+
         double x = transformStamped.transform.translation.x;
         double y = transformStamped.transform.translation.y;
+        tag_last_seen = ros::Time::now();
 
         tf2::Quaternion q(
             transformStamped.transform.rotation.x,
@@ -103,6 +133,7 @@ void printRobotPose(tf2_ros::Buffer &tfBuffer)
     }
     catch (tf2::TransformException &ex)
     {
+        markTagLost();
         ROS_WARN("Could NOT transform map to base_link: %s", ex.what());
     }
 }
@@ -158,6 +189,52 @@ void publishSafeCmdVel(ros::Publisher &cmd_pub, double linear_x, double angular_
 void stopRobot(ros::Publisher &cmd_pub)
 {
     publishSafeCmdVel(cmd_pub, 0.0, 0.0);
+}
+
+bool approachTagUntilDistance(ros::Publisher &cmd_pub,
+                              ros::Rate &loop_rate,
+                              geometry_msgs::Twist &vel_msg,
+                              double stop_distance,
+                              double forward_speed,
+                              double max_time_sec,
+                              const std::string &stage_name)
+{
+    const ros::Time start_time = ros::Time::now();
+    vel_msg.linear.x = forward_speed;
+    vel_msg.angular.z = 0.0;
+
+    while (ros::ok())
+    {
+        if (!isTagVisible())
+        {
+            stopRobot(cmd_pub);
+            vel_msg.linear.x = 0.0;
+            ROS_WARN("[%s] tag_1 lost. Stop robot.", stage_name.c_str());
+            return false;
+        }
+
+        if (tag_x < stop_distance)
+        {
+            stopRobot(cmd_pub);
+            vel_msg.linear.x = 0.0;
+            return true;
+        }
+
+        if ((ros::Time::now() - start_time).toSec() > max_time_sec)
+        {
+            stopRobot(cmd_pub);
+            vel_msg.linear.x = 0.0;
+            ROS_WARN("[%s] tag approach timeout. Stop robot.", stage_name.c_str());
+            return false;
+        }
+
+        cmd_pub.publish(vel_msg);
+        loop_rate.sleep();
+    }
+
+    stopRobot(cmd_pub);
+    vel_msg.linear.x = 0.0;
+    return false;
 }
 
 void runSmallRecoveryMotion(ros::Publisher &cmd_pub)
@@ -438,35 +515,22 @@ int main(int argc, char **argv)
     {
         ROS_INFO("Goal 1 Reached!");
         
-        vel_msg.linear.x = 0.07;   //0.07
-        count = 0;
-        while (ros::ok())
+        if (!approachTagUntilDistance(pub, loop_rate, vel_msg, 0.31, 0.07, 3.0, "Goal 1 tag approach"))
         {
-            if (tag_x >= 0.31)  //0.31
-		{
-			pub.publish(vel_msg);
-			loop_rate.sleep();
-		}
-		else
-		{
-			vel_msg.linear.x = 0.0;
-			pub.publish(vel_msg);
-			break;
-		}
+            stopRobot(pub);
+            return 1;
         }
-        vel_msg.linear.x = 0.0;
-        pub.publish(vel_msg);
 
         while(ros::ok())
         {
-		if (grab_flag == 0 and re_grab_count <= 4 and tag_x != 0.0)
+		if (grab_flag == 0 and re_grab_count <= 4 and isTagVisible())
 		{
 			ROS_INFO("retry");
 			if (tag_x >= 0.25)
 			{
 				vel_msg.linear.x = 0.1;
 				count = 0;
-				while (ros::ok() && count < 5)
+				while (ros::ok() && isTagVisible() && count < 5)
 				{
 				    pub.publish(vel_msg);
 				    loop_rate.sleep();
@@ -479,7 +543,7 @@ int main(int argc, char **argv)
 			{
 				vel_msg.linear.x = -0.1;
 				count = 0;
-				while (ros::ok() && count < 5)
+				while (ros::ok() && isTagVisible() && count < 5)
 				{
 				    pub.publish(vel_msg);
 				    loop_rate.sleep();
@@ -628,35 +692,22 @@ int main(int argc, char **argv)
     {
     	 ROS_INFO("Goal 2 Reached!");
 	 
-        vel_msg.linear.x = 0.07;
-        count = 0;
-        while (ros::ok())
+        if (!approachTagUntilDistance(pub, loop_rate, vel_msg, 0.29, 0.07, 3.0, "Goal 2 tag approach"))
         {
-            if (tag_x >= 0.29)  //0.29
-		{
-			pub.publish(vel_msg);
-			loop_rate.sleep();
-		}
-		else
-		{
-			vel_msg.linear.x = 0.0;
-			pub.publish(vel_msg);
-			break;
-		}
+            stopRobot(pub);
+            return 1;
         }
-        vel_msg.linear.x = 0.0;
-        pub.publish(vel_msg);
         system("roslaunch clean_desktop_robot arm_grab.launch");
         while(ros::ok())
         {
-		if (grab_flag == 0 and re_grab_count <= 4 and tag_x != 0.0)
+		if (grab_flag == 0 and re_grab_count <= 4 and isTagVisible())
 		{
 			ROS_INFO("retry");
 			if (tag_x >= 0.25)
 			{
 				vel_msg.linear.x = 0.1;
 				count = 0;
-				while (ros::ok() && count < 5)
+				while (ros::ok() && isTagVisible() && count < 5)
 				{
 				    pub.publish(vel_msg);
 				    loop_rate.sleep();
@@ -669,7 +720,7 @@ int main(int argc, char **argv)
 			{
 				vel_msg.linear.x = -0.1;
 				count = 0;
-				while (ros::ok() && count < 5)
+				while (ros::ok() && isTagVisible() && count < 5)
 				{
 				    pub.publish(vel_msg);
 				    loop_rate.sleep();
