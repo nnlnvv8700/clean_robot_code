@@ -457,6 +457,7 @@ int main(int argc, char **argv)
     tf2_ros::TransformListener tfListener(tfBuffer);
     
     std::thread tf_thread(printRobotPoseLoop, &tfBuffer);
+    tf_thread.detach();  // 后台监控线程，退出时不等待
 
     ros::Publisher pub = nh.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
     MoveBaseClient ac("move_base", true);
