@@ -488,17 +488,19 @@ int main(int argc, char **argv)
     geometry_msgs::Twist vel_msg;
     int count = 0;
 
+    // 启动前先清 costmap，消除启动时激光扫到自身周边的假障碍
+    clearCostmaps(nh);
 
-    vel_msg.linear.x = 0.08;
+    // 手动前移 30cm，脱离起点可能的阴影区
+    vel_msg.linear.x = 0.10;
     count = 0;
-    while (ros::ok() && count < 8)
+    while (ros::ok() && count < 30)
     {
         pub.publish(vel_msg);
         loop_rate.sleep();
         count++;
     }
-    vel_msg.linear.x = 0.0;
-    pub.publish(vel_msg);
+    stopRobot(pub);
 
 
 
