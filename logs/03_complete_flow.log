@@ -1,10 +1,2 @@
-[33m[ WARN] [1778934079.932904267]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778934080.938966228]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778934081.941228452]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778934082.949409903]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778934083.954869299]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778934084.963958978]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778934085.970932671]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778934086.975052771]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778934087.979359826]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
-[33m[ WARN] [1778934088.983147436]: Could NOT transform map to base_link: "tag36h11:1" passed to lookupTransform argument source_frame does not exist. [0m
+[31m[FATAL] [1778936297.028162732]: You must call ros::init() before creating the first NodeHandle[0m
+[31m[ERROR] [1778936297.038090227]: [registerPublisher] Failed to contact master at [:0].  Retrying...[0m
