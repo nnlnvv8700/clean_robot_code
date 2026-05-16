@@ -41,7 +41,28 @@ int main(int argc, char **argv)
     ROS_INFO("tf coordinate transformaing....");
 
     // 获取tag到机械臂基坐标的坐标变换
-    geometry_msgs::TransformStamped tfs_1 = buffer.lookupTransform("arm_base_link", "tag_1", ros::Time(0), ros::Duration(5));
+    geometry_msgs::TransformStamped tfs_1;
+    try
+    {
+        ROS_INFO("Waiting for tag 'tag36h11:1' in TF tree (max 30s)...");
+        if (!buffer.canTransform("arm_base_link", "tag36h11:1", ros::Time(0), ros::Duration(30.0)))
+        {
+            ROS_ERROR("Tag 'tag36h11:1' not detected within 30s.\n"
+                      "  Check: (1) AprilTag detector is running\n"
+                      "         (2) Tag family is tag36h11\n"
+                      "         (3) Tag 1 is in camera FOV");
+            ros::shutdown();
+            return 1;
+        }
+        tfs_1 = buffer.lookupTransform("arm_base_link", "tag36h11:1", ros::Time(0));
+        ROS_INFO("Transform for 'tag36h11:1' OK");
+    }
+    catch (tf2::TransformException &ex)
+    {
+        ROS_ERROR("TF lookup failed for 'tag36h11:1': %s", ex.what());
+        ros::shutdown();
+        return 1;
+    }
 
     // 单位转换，ros坐标系到逆运算坐标系
     int x = -int(tfs_1.transform.translation.y * 1000);

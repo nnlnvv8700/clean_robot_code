@@ -24,6 +24,10 @@ int grab_flag = 0;
 
 const double TAG_LOST_TIMEOUT_SEC = 0.5;
 
+// AprilTag 坐标系名（见 settings.yaml: tag_family）
+// tag36h11 家族发布 tag36h11:1, tag36h11:2, ...
+const std::string TAG_FRAME = "tag36h11:1";
+
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
 void logBlock(const std::string &level, const std::string &title, const std::string &detail)
@@ -88,13 +92,13 @@ void printRobotPose(tf2_ros::Buffer &tfBuffer)
     try
     {
         geometry_msgs::TransformStamped transformStamped;
-        transformStamped = tfBuffer.lookupTransform("base_link", "tag_1", ros::Time(0), ros::Duration(1.0));
+        transformStamped = tfBuffer.lookupTransform("base_link", TAG_FRAME, ros::Time(0), ros::Duration(1.0));
 
         if (!transformStamped.header.stamp.isZero() &&
             (ros::Time::now() - transformStamped.header.stamp).toSec() > TAG_LOST_TIMEOUT_SEC)
         {
             markTagLost();
-            ROS_WARN_THROTTLE(1.0, "tag_1 transform is stale. Stop tag-based forward motion.");
+            ROS_WARN_THROTTLE(1.0, "%s transform is stale. Stop tag-based forward motion.", TAG_FRAME.c_str());
             return;
         }
 
@@ -209,7 +213,7 @@ bool approachTagUntilDistance(ros::Publisher &cmd_pub,
         {
             stopRobot(cmd_pub);
             vel_msg.linear.x = 0.0;
-            ROS_WARN("[%s] tag_1 lost. Stop robot.", stage_name.c_str());
+            ROS_WARN("[%s] %s lost. Stop robot.", stage_name.c_str(), TAG_FRAME.c_str());
             return false;
         }
 

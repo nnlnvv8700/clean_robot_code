@@ -34,8 +34,30 @@ int main(int argc, char **argv)
     tf2_ros::TransformListener listener(buffer);
     ROS_INFO("tf coordinate transformaing....");
 
-    // 获取tag到机械臂基坐标的坐标变换
-    geometry_msgs::TransformStamped tfs_1 = buffer.lookupTransform("arm_base_link", tag_link, ros::Time(0), ros::Duration(100));
+    // 等待并获取tag到机械臂基坐标的坐标变换
+    geometry_msgs::TransformStamped tfs_1;
+    try
+    {
+        ROS_INFO("Waiting for tag '%s' in TF tree (max 30s)...", tag_link.c_str());
+        if (!buffer.canTransform("arm_base_link", tag_link, ros::Time(0), ros::Duration(30.0)))
+        {
+            ROS_ERROR("Tag '%s' not detected within 30s.\n"
+                      "  Check: (1) AprilTag detector is running\n"
+                      "         (2) tag family matches (expected: tag36h11:1, got: %s)\n"
+                      "         (3) tag is in camera FOV",
+                      tag_link.c_str(), tag_link.c_str());
+            ros::shutdown();
+            return 1;
+        }
+        tfs_1 = buffer.lookupTransform("arm_base_link", tag_link, ros::Time(0));
+        ROS_INFO("Transform for '%s' OK", tag_link.c_str());
+    }
+    catch (tf2::TransformException &ex)
+    {
+        ROS_ERROR("TF lookup failed for '%s': %s", tag_link.c_str(), ex.what());
+        ros::shutdown();
+        return 1;
+    }
 
     int bias_x = 0;  //x方向的偏移，增加的机械臂往左多探的毫米数
     int bias_y = 80; //y方向的偏移，增加的机械臂往前多探的毫米数
