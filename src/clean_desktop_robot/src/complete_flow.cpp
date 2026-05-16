@@ -87,12 +87,12 @@ bool isTagVisible()
     return (ros::Time::now() - tag_last_seen).toSec() <= TAG_LOST_TIMEOUT_SEC && tag_x != 0.0;
 }
 
-void printRobotPose(tf2_ros::Buffer &tfBuffer)
+void printRobotPose(tf2_ros::Buffer &g_tfBuffer)
 {
     try
     {
         geometry_msgs::TransformStamped transformStamped;
-        transformStamped = tfBuffer.lookupTransform("base_link", TAG_FRAME, ros::Time(0), ros::Duration(1.0));
+        transformStamped = g_tfBuffer.lookupTransform("base_link", TAG_FRAME, ros::Time(0), ros::Duration(1.0));
 
         if (!transformStamped.header.stamp.isZero() &&
             (ros::Time::now() - transformStamped.header.stamp).toSec() > TAG_LOST_TIMEOUT_SEC)
@@ -142,12 +142,12 @@ void printRobotPose(tf2_ros::Buffer &tfBuffer)
     }
 }
 
-void printRobotPoseLoop(tf2_ros::Buffer *tfBuffer)
+void printRobotPoseLoop(tf2_ros::Buffer *g_tfBuffer)
 {
     ros::Rate rate(10); 
     while (ros::ok())
     {
-        printRobotPose(*tfBuffer);
+        printRobotPose(*g_tfBuffer);
         rate.sleep();
     }
 }
@@ -268,7 +268,7 @@ void runSmallRecoveryMotion(ros::Publisher &cmd_pub)
     ROS_WARN("[导航][恢复] 手动脱困动作结束，已发布 0 速度。");
 }
 
-bool waitForValidTf(tf2_ros::Buffer &tfBuffer, geometry_msgs::TransformStamped &robot_pose, std::string &base_frame)
+bool waitForValidTf(tf2_ros::Buffer &g_tfBuffer, geometry_msgs::TransformStamped &robot_pose, std::string &base_frame)
 {
     const std::string frames[] = {"base_footprint", "base_link"};
     const ros::Time start_time = ros::Time::now();
@@ -279,7 +279,7 @@ bool waitForValidTf(tf2_ros::Buffer &tfBuffer, geometry_msgs::TransformStamped &
         {
             try
             {
-                robot_pose = tfBuffer.lookupTransform("map", frames[i], ros::Time(0), ros::Duration(0.2));
+                robot_pose = g_tfBuffer.lookupTransform("map", frames[i], ros::Time(0), ros::Duration(0.2));
                 base_frame = frames[i];
 
                 const double x = robot_pose.transform.translation.x;
@@ -315,7 +315,7 @@ double poseDistance(const geometry_msgs::TransformStamped &a, const geometry_msg
 bool navigateToGoalWithRecovery(MoveBaseClient &ac,
                                 ros::NodeHandle &nh,
                                 ros::Publisher &cmd_pub,
-                                tf2_ros::Buffer &tfBuffer,
+                                tf2_ros::Buffer &g_tfBuffer,
                                 move_base_msgs::MoveBaseGoal goal,
                                 const std::string &goal_name,
                                 double timeout_sec = 45.0,
@@ -335,7 +335,7 @@ bool navigateToGoalWithRecovery(MoveBaseClient &ac,
         geometry_msgs::TransformStamped last_motion_pose;
         std::string base_frame;
 
-        if (!waitForValidTf(tfBuffer, current_pose, base_frame))
+        if (!waitForValidTf(g_tfBuffer, current_pose, base_frame))
         {
             stopRobot(cmd_pub);
             return false;
@@ -401,7 +401,7 @@ bool navigateToGoalWithRecovery(MoveBaseClient &ac,
 
             geometry_msgs::TransformStamped live_pose;
             std::string live_base_frame;
-            if (waitForValidTf(tfBuffer, live_pose, live_base_frame))
+            if (waitForValidTf(g_tfBuffer, live_pose, live_base_frame))
             {
                 if (poseDistance(live_pose, last_motion_pose) > 0.03)
                 {
@@ -447,17 +447,18 @@ bool navigateToGoalWithRecovery(MoveBaseClient &ac,
     return false;
 }
 
+// TF Buffer 定义为全局，避免 main 退出后线程访问已销毁的对象
+tf2_ros::Buffer g_g_tfBuffer;
+tf2_ros::TransformListener g_tfListener(g_g_tfBuffer);
+
 int main(int argc, char **argv)
 {
     ros::init(argc, argv, "send_goals_node");
     ros::NodeHandle nh;
 
-    // TF listener setup
-    tf2_ros::Buffer tfBuffer;
-    tf2_ros::TransformListener tfListener(tfBuffer);
-    
-    std::thread tf_thread(printRobotPoseLoop, &tfBuffer);
-    tf_thread.detach();  // 后台监控线程，退出时不等待
+    // TF 后台监控线程（全局 buffer，安全 detach）
+    std::thread tf_thread(printRobotPoseLoop, &g_g_tfBuffer);
+    tf_thread.detach();
 
     ros::Publisher pub = nh.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
     MoveBaseClient ac("move_base", true);
@@ -512,8 +513,8 @@ int main(int argc, char **argv)
     goal.target_pose.pose.orientation.z = 0.0;
     goal.target_pose.pose.orientation.w = 1.0;
     goal.target_pose.header.stamp = ros::Time::now();
-    // printRobotPose(tfBuffer);
-    bool goal_1_reached = navigateToGoalWithRecovery(ac, nh, pub, tfBuffer, goal, "Goal 1 Grab");
+    // printRobotPose(g_tfBuffer);
+    bool goal_1_reached = navigateToGoalWithRecovery(ac, nh, pub, g_tfBuffer, goal, "Goal 1 Grab");
     
     const double search_speed =0.2;  // 统一的搜索速度
     const double return_speed =0.2; // 统一的返回速度
@@ -641,7 +642,7 @@ int main(int argc, char **argv)
     goal.target_pose.pose.position.y = grab_1_y - offset_right;
     goal.target_pose.header.stamp = ros::Time::now();
 
-    bool goal_1_trash_reached = navigateToGoalWithRecovery(ac, nh, pub, tfBuffer, goal, "Goal 1 Trash");
+    bool goal_1_trash_reached = navigateToGoalWithRecovery(ac, nh, pub, g_tfBuffer, goal, "Goal 1 Trash");
 
     if (goal_1_trash_reached)
     {
@@ -691,7 +692,7 @@ int main(int argc, char **argv)
     goal.target_pose.pose.position.y = grab_2_y;
     goal.target_pose.header.stamp = ros::Time::now();
 
-    bool goal_2_reached = navigateToGoalWithRecovery(ac, nh, pub, tfBuffer, goal, "Goal 2 Grab");
+    bool goal_2_reached = navigateToGoalWithRecovery(ac, nh, pub, g_tfBuffer, goal, "Goal 2 Grab");
     
     
 
@@ -774,7 +775,7 @@ int main(int argc, char **argv)
     goal.target_pose.pose.position.y = grab_2_y + offset_left;
     goal.target_pose.header.stamp = ros::Time::now();
 
-    bool goal_2_trash_reached = navigateToGoalWithRecovery(ac, nh, pub, tfBuffer, goal, "Goal 2 Trash");
+    bool goal_2_trash_reached = navigateToGoalWithRecovery(ac, nh, pub, g_tfBuffer, goal, "Goal 2 Trash");
 
     if (goal_2_trash_reached)
     {
@@ -862,7 +863,7 @@ int main(int argc, char **argv)
     goal.target_pose.pose.orientation.w = -0.39157;
     goal.target_pose.header.stamp = ros::Time::now();
 
-    bool home_reached = navigateToGoalWithRecovery(ac, nh, pub, tfBuffer, goal, "Return Home 2");
+    bool home_reached = navigateToGoalWithRecovery(ac, nh, pub, g_tfBuffer, goal, "Return Home 2");
 
     if (home_reached)
     {
