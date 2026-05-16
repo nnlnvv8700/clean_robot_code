@@ -466,8 +466,8 @@ bool navigateToGoalWithRecovery(MoveBaseClient &ac,
 }
 
 // TF Buffer 定义为全局，避免 main 退出后线程访问已销毁的对象
-tf2_ros::Buffer g_g_tfBuffer;
-tf2_ros::TransformListener g_tfListener(g_g_tfBuffer);
+tf2_ros::Buffer g_tfBuffer;
+tf2_ros::TransformListener g_tfListener(g_tfBuffer);
 
 int main(int argc, char **argv)
 {
@@ -475,7 +475,7 @@ int main(int argc, char **argv)
     ros::NodeHandle nh;
 
     // TF 后台监控线程（全局 buffer，安全 detach）
-    std::thread tf_thread(printRobotPoseLoop, &g_g_tfBuffer);
+    std::thread tf_thread(printRobotPoseLoop, &g_tfBuffer);
     tf_thread.detach();
 
     ros::Publisher pub = nh.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
