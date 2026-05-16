@@ -246,9 +246,9 @@ bool navigateToGoalWithRecovery(MoveBaseClient &ac,
     }
 
     logBlock("信息", "开始导航",
-             "目标: " + goal_name + "\n恢复策略: 清理代价地图后重试；短距离后退/旋转后重试；第三次失败返回 false。");
+             "目标: " + goal_name + "\n恢复策略: 清理代价地图后重试；失败则返回 false，不再执行手动脱困倒车。");
 
-    for (int attempt = 1; ros::ok() && attempt <= 3; ++attempt)
+    for (int attempt = 1; ros::ok() && attempt <= 2; ++attempt)
     {
         geometry_msgs::TransformStamped current_pose;
         geometry_msgs::TransformStamped last_motion_pose;
@@ -266,7 +266,7 @@ bool navigateToGoalWithRecovery(MoveBaseClient &ac,
         const double current_yaw = yawFromQuaternion(current_pose.transform.rotation);
         const double target_yaw = yawFromQuaternion(goal.target_pose.pose.orientation);
         ROS_INFO("------------------------------------------------------------");
-        ROS_INFO("[导航][目标] %s | 第 %d/3 次尝试", goal_name.c_str(), attempt);
+        ROS_INFO("[导航][目标] %s | 第 %d/2 次尝试", goal_name.c_str(), attempt);
         ROS_INFO("[导航][当前位姿] map->%s: x=%.3f y=%.3f yaw=%.2f 度",
                  base_frame.c_str(),
                  current_pose.transform.translation.x,
@@ -357,18 +357,11 @@ bool navigateToGoalWithRecovery(MoveBaseClient &ac,
                      "目标: " + goal_name + "\n动作: 清理代价地图，然后重新发送同一个目标。");
             clearCostmaps(nh);
         }
-        else if (attempt == 2)
-        {
-            logBlock("警告", "恢复策略 2",
-                     "目标: " + goal_name + "\n动作: 短距离后退 + 小角度旋转，清理代价地图，然后重新发送目标。");
-            runSmallRecoveryMotion(cmd_pub);
-            clearCostmaps(nh);
-        }
     }
 
-    logBlock("错误", "导航三次尝试后失败",
+    logBlock("错误", "导航两次尝试后失败",
              "目标: " + goal_name +
-             "\n结果: 返回 false，并停止机器人。\n优先检查: TF 树、初始位姿、local_costmap、footprint、膨胀半径、激光雷达数据。");
+             "\n结果: 返回 false，并停止机器人。不会继续执行后续目标或手动后退。\n优先检查: TF 树、初始位姿、local_costmap、footprint、膨胀半径、激光雷达数据。");
     stopRobot(cmd_pub);
     return false;
 }
@@ -414,7 +407,7 @@ int main(int argc, char **argv)
     int count = 0;
 
 
-    vel_msg.linear.x = 0.5;
+    vel_msg.linear.x = 0.08;
     count = 0;
     while (ros::ok() && count < 8)
     {
@@ -508,15 +501,17 @@ int main(int argc, char **argv)
     else
     {
         ROS_WARN("Goal 1 Failed!");
+        stopRobot(pub);
+        return 1;
     }
 
 
 
 
     // ---------------------- Backward after grab
-    vel_msg.linear.x = -0.3;
+    vel_msg.linear.x = -0.08;
     count = 0;
-    while (ros::ok() && count < 14)
+    while (ros::ok() && count < 10)
     {
         pub.publish(vel_msg);
         loop_rate.sleep();
@@ -592,12 +587,18 @@ int main(int argc, char **argv)
         pub.publish(vel_msg);
         system("roslaunch clean_desktop_robot arm_put.launch");
     }
+    else
+    {
+        ROS_WARN("Goal 1 Trash Failed!");
+        stopRobot(pub);
+        return 1;
+    }
 
 
 
-    vel_msg.linear.x = -0.3;
+    vel_msg.linear.x = -0.08;
     count = 0;
-    while (ros::ok() && count < 16)
+    while (ros::ok() && count < 10)
     {
         pub.publish(vel_msg);
         loop_rate.sleep();
@@ -686,6 +687,12 @@ int main(int argc, char **argv)
 		}
 	}
     }
+    else
+    {
+        ROS_WARN("Goal 2 Failed!");
+        stopRobot(pub);
+        return 1;
+    }
 
 
 
@@ -726,10 +733,16 @@ int main(int argc, char **argv)
         pub.publish(vel_msg);
         system("roslaunch clean_desktop_robot arm_put.launch");
     }
+    else
+    {
+        ROS_WARN("Goal 2 Trash Failed!");
+        stopRobot(pub);
+        return 1;
+    }
 
-    vel_msg.linear.x = -0.5;
+    vel_msg.linear.x = -0.08;
     count = 0;
-    while (ros::ok() && count < 50)    //50
+    while (ros::ok() && count < 10)
     {
         pub.publish(vel_msg);
         loop_rate.sleep();
@@ -798,7 +811,7 @@ int main(int argc, char **argv)
         ROS_INFO("Back to Home 2!");
     }
 
-    vel_msg.linear.x = 0.2;
+    vel_msg.linear.x = 0.08;
     count = 0;
     while (ros::ok() && count < 13)
     {
@@ -806,7 +819,8 @@ int main(int argc, char **argv)
         loop_rate.sleep();
         count++;
     }
+    vel_msg.linear.x = 0.0;
+    pub.publish(vel_msg);
 
     return 0;
 }
-
