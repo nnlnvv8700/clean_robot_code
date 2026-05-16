@@ -69,6 +69,17 @@ void sleep(double second)
     ros::Duration(second).sleep();
 }
 
+// 给 goal 设置朝向（yaw 弧度）
+void setGoalYaw(move_base_msgs::MoveBaseGoal &goal, double yaw)
+{
+    tf2::Quaternion q;
+    q.setRPY(0, 0, yaw);
+    goal.target_pose.pose.orientation.x = q.x();
+    goal.target_pose.pose.orientation.y = q.y();
+    goal.target_pose.pose.orientation.z = q.z();
+    goal.target_pose.pose.orientation.w = q.w();
+}
+
 void markTagLost()
 {
     tag_x = 0.0;
@@ -195,6 +206,7 @@ void stopRobot(ros::Publisher &cmd_pub)
     publishSafeCmdVel(cmd_pub, 0.0, 0.0);
 }
 
+// 视觉伺服逼近 tag：边转边前进，保持 tag 居中
 bool approachTagUntilDistance(ros::Publisher &cmd_pub,
                               ros::Rate &loop_rate,
                               geometry_msgs::Twist &vel_msg,
@@ -204,8 +216,6 @@ bool approachTagUntilDistance(ros::Publisher &cmd_pub,
                               const std::string &stage_name)
 {
     const ros::Time start_time = ros::Time::now();
-    vel_msg.linear.x = forward_speed;
-    vel_msg.angular.z = 0.0;
 
     while (ros::ok())
     {
@@ -213,11 +223,11 @@ bool approachTagUntilDistance(ros::Publisher &cmd_pub,
         {
             stopRobot(cmd_pub);
             vel_msg.linear.x = 0.0;
-            ROS_WARN("[%s] %s lost. Stop robot.", stage_name.c_str(), TAG_FRAME.c_str());
+            ROS_WARN("[%s] %s lost during approach.", stage_name.c_str(), TAG_FRAME.c_str());
             return false;
         }
 
-        if (tag_x < stop_distance)
+        if (tag_x <= stop_distance)
         {
             stopRobot(cmd_pub);
             vel_msg.linear.x = 0.0;
@@ -228,9 +238,17 @@ bool approachTagUntilDistance(ros::Publisher &cmd_pub,
         {
             stopRobot(cmd_pub);
             vel_msg.linear.x = 0.0;
-            ROS_WARN("[%s] tag approach timeout. Stop robot.", stage_name.c_str());
+            ROS_WARN("[%s] tag approach timeout.", stage_name.c_str());
             return false;
         }
+
+        // 视觉伺服：根据 tag_y 实时纠偏角度，让 tag 保持在正前方
+        double angle_error = atan2(tag_y, tag_x);
+        vel_msg.linear.x = forward_speed;
+        vel_msg.angular.z = 1.0 * angle_error;  // 比例控制
+        // 限幅
+        if (vel_msg.angular.z > 0.25) vel_msg.angular.z = 0.25;
+        if (vel_msg.angular.z < -0.25) vel_msg.angular.z = -0.25;
 
         cmd_pub.publish(vel_msg);
         loop_rate.sleep();
@@ -465,14 +483,16 @@ int main(int argc, char **argv)
     ac.waitForServer();
 
     // Parameters
-    double grab_1_x = 1.90, grab_1_y = -1.83;
-    double grab_2_x = 1.90, grab_2_y = -3.05;
+    double grab_1_x = 2.067652, grab_1_y = 0.162729, grab_1_yaw = -0.812589;
+    double grab_2_x = 0.666814, grab_2_y = -1.307751, grab_2_yaw = -0.666880;
     double offset_left = 0.4, offset_right = 0.4;
 
     nh.getParam("/complete_flow_node/grab_1_x", grab_1_x);
     nh.getParam("/complete_flow_node/grab_1_y", grab_1_y);
+    nh.getParam("/complete_flow_node/grab_1_yaw", grab_1_yaw);
     nh.getParam("/complete_flow_node/grab_2_x", grab_2_x);
     nh.getParam("/complete_flow_node/grab_2_y", grab_2_y);
+    nh.getParam("/complete_flow_node/grab_2_yaw", grab_2_yaw);
     nh.getParam("/complete_flow_node/offset_left", offset_left);
     nh.getParam("/complete_flow_node/offset_right", offset_right);
 
@@ -510,10 +530,8 @@ int main(int argc, char **argv)
     goal.target_pose.header.frame_id = "map";
     goal.target_pose.pose.position.x = grab_1_x;
     goal.target_pose.pose.position.y = grab_1_y;
-    goal.target_pose.pose.orientation.z = 0.0;
-    goal.target_pose.pose.orientation.w = 1.0;
+    setGoalYaw(goal, grab_1_yaw);
     goal.target_pose.header.stamp = ros::Time::now();
-    // printRobotPose(g_tfBuffer);
     bool goal_1_reached = navigateToGoalWithRecovery(ac, nh, pub, g_tfBuffer, goal, "Goal 1 Grab");
     
     const double search_speed =0.2;  // 统一的搜索速度
@@ -690,6 +708,7 @@ int main(int argc, char **argv)
     // ---------------------- Goal 2 (Grab)
     goal.target_pose.pose.position.x = grab_2_x;
     goal.target_pose.pose.position.y = grab_2_y;
+    setGoalYaw(goal, grab_2_yaw);
     goal.target_pose.header.stamp = ros::Time::now();
 
     bool goal_2_reached = navigateToGoalWithRecovery(ac, nh, pub, g_tfBuffer, goal, "Goal 2 Grab");
